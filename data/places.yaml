@@ -1,0 +1,167 @@
+# Place gazetteer. Every `place:` reference in family.yaml must resolve to an id here.
+# Add new entries freely; ids are arbitrary but must be unique.
+
+stockholm:
+  name: Stockholm
+  country: Sweden
+  lat: 59.3293
+  lon: 18.0686
+dalarna:
+  name: Dalarna
+  country: Sweden
+  lat: 60.6065
+  lon: 15.6355
+gothenburg:
+  name: Gothenburg
+  country: Sweden
+  lat: 57.7089
+  lon: 11.9746
+malmo:
+  name: Malmö
+  country: Sweden
+  lat: 55.6050
+  lon: 13.0038
+uppsala:
+  name: Uppsala
+  country: Sweden
+  lat: 59.8586
+  lon: 17.6389
+
+bergen:
+  name: Bergen
+  country: Norway
+  lat: 60.3913
+  lon: 5.3221
+oslo:
+  name: Oslo
+  country: Norway
+  lat: 59.9139
+  lon: 10.7522
+trondheim:
+  name: Trondheim
+  country: Norway
+  lat: 63.4305
+  lon: 10.3951
+
+paris:
+  name: Paris
+  country: France
+  lat: 48.8566
+  lon: 2.3522
+strasbourg:
+  name: Strasbourg
+  country: France
+  lat: 48.5734
+  lon: 7.7521
+lyon:
+  name: Lyon
+  country: France
+  lat: 45.7640
+  lon: 4.8357
+le_havre:
+  name: Le Havre
+  country: France
+  lat: 49.4944
+  lon: 0.1079
+
+hamburg:
+  name: Hamburg
+  country: Germany
+  lat: 53.5511
+  lon: 9.9937
+berlin:
+  name: Berlin
+  country: Germany
+  lat: 52.5200
+  lon: 13.4050
+bremen:
+  name: Bremen
+  country: Germany
+  lat: 53.0793
+  lon: 8.8017
+
+new_york:
+  name: New York
+  country: USA
+  lat: 40.7128
+  lon: -74.0060
+ellis_island:
+  name: Ellis Island
+  country: USA
+  lat: 40.6995
+  lon: -74.0396
+minneapolis:
+  name: Minneapolis
+  country: USA
+  lat: 44.9778
+  lon: -93.2650
+chicago:
+  name: Chicago
+  country: USA
+  lat: 41.8781
+  lon: -87.6298
+seattle:
+  name: Seattle
+  country: USA
+  lat: 47.6062
+  lon: -122.3321
+
+# --- Ruetten paternal line -------------------------------------------------
+# Coordinates are approximate village centres, good enough for a map at this scale.
+
+wevelinghoven:
+  name: Wevelinghoven
+  country: Germany
+  lat: 51.0833
+  lon: 6.5833
+doveren:
+  name: Doveren
+  country: Germany
+  lat: 51.0464
+  lon: 6.2075
+neukirchen_gv:
+  name: Neukirchen (Grevenbroich)
+  country: Germany
+  lat: 51.1069
+  lon: 6.6003
+langwaden:
+  name: Langwaden
+  country: Germany
+  lat: 51.0567
+  lon: 6.6431
+sinsteden:
+  name: Sinsteden
+  country: Germany
+  lat: 51.0397
+  lon: 6.6806
+rhineland:
+  name: Rhineland
+  country: Germany
+  lat: 51.0500
+  lon: 6.6000
+
+ithaca_wi:
+  name: Ithaca, Richland County
+  country: USA
+  lat: 43.3016
+  lon: -90.2612
+sparta_wi:
+  name: Sparta, Monroe County
+  country: USA
+  lat: 43.9441
+  lon: -90.8129
+st_marys_wi:
+  name: St. Mary's Ridge, Monroe County
+  country: USA
+  lat: 43.7842
+  lon: -90.7300
+monroe_county_wi:
+  name: Monroe County
+  country: USA
+  lat: 43.9500
+  lon: -90.6200
+wisconsin:
+  name: Wisconsin
+  country: USA
+  lat: 44.5000
+  lon: -89.5000

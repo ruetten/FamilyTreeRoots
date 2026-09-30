@@ -1,0 +1,55 @@
+# Animation range. null = use the earliest / latest date found in the data.
+start_year: null
+end_year: null
+
+# Smaller values give smoother motion at the cost of more frames and a bigger file.
+years_per_frame: 0.5
+frame_ms: 70
+
+# Years spent sliding between two locations when someone moves.
+move_tween_years: 3.0
+
+# Moves recorded less than this far apart are stopovers on one journey (a port, a
+# landing point) and animate as a single continuous crossing rather than jumping.
+transit_years: 1.5
+
+# How long a birth pulls both parents' dots onto the exact birthplace and lets the
+# newborn spring back out again. Also how long the handed-off generation takes to dim.
+merge_years: 3.0
+merged_alpha: 0.3
+
+# The comet tail behind each moving dot.
+trail_years: 7.0
+trail_samples: 16
+
+# The expanding ring drawn at each birth.
+flash_years: 4.0
+
+birth_fade_years: 1.5
+death_fade_years: 2.0
+
+# Leave a faint permanent marker where each person died.
+show_dead_ghosts: true
+ghost_opacity: 0.25
+
+map:
+  projection: natural earth
+  # Wide enough for Wisconsin through to northern Scandinavia.
+  lat_range: [20, 70]
+  lon_range: [-98, 26]
+  # 50 gives finer coastlines and lake shapes than the default 110.
+  resolution: 50
+  # State / province borders. Plotly only carries these for the USA.
+  show_states: true
+  # Carves the Great Lakes out of the land so Wisconsin and Michigan read properly.
+  show_lakes: true
+  land_color: "#2b3138"
+  ocean_color: "#11151a"
+  country_color: "#4a535e"
+  subunit_color: "#3b444e"
+
+output:
+  path: out/family_map.html
+  # "cdn" keeps the file small (needs internet to view); "inline" embeds plotly.js (~3MB, fully offline).
+  plotlyjs: inline
+  title: Family Roots

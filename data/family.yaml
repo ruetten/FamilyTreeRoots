@@ -1,0 +1,132 @@
+# Ruetten paternal line, from WikiTree profile Ruetten-24 and its direct ancestors.
+# Each generation is the Ruetten father and the wife who bore the next Ruetten.
+#
+# Schema
+#   root: <id>                        the person the line leads to
+#   people:
+#     - id: unique_key
+#       name: Display Name
+#       sex: M | F | ''
+#       birth:  {date: YYYY[-MM[-DD]], place: <id from places.yaml>}
+#       death:  {date: ..., place: ...}   omit entirely if unrecorded
+#       parents: [id, id]                 0, 1 or 2 entries
+#       residences:                       optional; where they were between events
+#         - {from: YYYY[-MM[-DD]], place: <id>}
+#
+# Locations you do not record are inferred: a person is assumed to have been
+# present at each of their children's births. That is what carries the family
+# across the Atlantic between 1880 and 1889 without an explicit voyage record.
+
+root: laik_1998
+
+people:
+  # --- generation 1: Rhineland ---------------------------------------------
+  - id: theodore_1716
+    name: Theodore Ruetten
+    sex: M
+    birth: {date: 1716, place: rhineland}
+    notes: Birthplace recorded only as Germany; placed at the family's Rhineland cluster.
+
+  - id: catharina_1721
+    name: Catharina Hindrichs
+    sex: F
+    birth: {date: 1721, place: rhineland}
+    notes: Birthplace recorded only as Germany.
+
+  # --- generation 2 ---------------------------------------------------------
+  - id: heinrich_1746
+    name: Heinrich Ruetten
+    sex: M
+    birth: {date: 1746-08-29, place: wevelinghoven}
+    parents: [theodore_1716, catharina_1721]
+
+  - id: margarethe_1763
+    name: Margarethe Endhoven
+    sex: F
+    birth: {date: 1763, place: rhineland}
+    notes: Birthplace recorded only as Germany.
+
+  # --- generation 3 ---------------------------------------------------------
+  - id: johan_1791
+    name: Johan Theodore Ruetten
+    sex: M
+    birth: {date: 1791-01-27, place: doveren}
+    parents: [heinrich_1746, margarethe_1763]
+    notes: WikiTree spells the birthplace "Doveran"; read as Doveren, Hückelhoven.
+
+  - id: anna_josepha_1797
+    name: Anna Josepha Stuebben
+    sex: F
+    birth: {date: 1797-04-18, place: neukirchen_gv}
+
+  # --- generation 4: the emigrant -------------------------------------------
+  - id: peter_1830
+    name: Peter Heinrich Hubert Ruetten
+    sex: M
+    birth: {date: 1830-03-09, place: neukirchen_gv}
+    death: {date: 1908-02-19, place: ithaca_wi}
+    parents: [johan_1791, anna_josepha_1797]
+
+  - id: anna_catharina_1831
+    name: Anna Catharina Willschuetz
+    sex: F
+    birth: {date: 1831-07-27, place: langwaden}
+    death: {date: 1880-07-24, place: sinsteden}
+    notes: Died in the Rhineland; the family crossed to Wisconsin after her death.
+
+  # --- generation 5 ---------------------------------------------------------
+  - id: theodore_1863
+    name: Theodore Hubert Ruetten
+    sex: M
+    birth: {date: 1863-01-18, place: sinsteden}
+    death: {date: 1950-01, place: sparta_wi}
+    parents: [peter_1830, anna_catharina_1831]
+    notes: WikiTree spells the birthplace "Shinstoden"; read as Sinsteden.
+
+  - id: veronica_1869
+    name: Veronica Weitzel
+    sex: F
+    birth: {date: 1869-10-13}
+    death: {date: 1900-02-19, place: ithaca_wi}
+    notes: Birthplace unrecorded; her position is inferred from her son's birth.
+
+  # --- generation 6 ---------------------------------------------------------
+  - id: george_1889
+    name: George Hubert Ruetten
+    sex: M
+    birth: {date: 1889-06-28, place: ithaca_wi}
+    death: {date: 1981, place: monroe_county_wi}
+    parents: [theodore_1863, veronica_1869]
+
+  - id: mary_1889
+    name: Mary Muehlenberg
+    sex: F
+    birth: {date: 1889-07-04, place: st_marys_wi}
+    death: {date: 1957-01-01, place: sparta_wi}
+
+  # --- generation 7 ---------------------------------------------------------
+  - id: stephen_1928
+    name: Stephen Theodore Ruetten
+    sex: M
+    birth: {date: 1928-04-27, place: sparta_wi}
+    death: {date: 2018-08-23, place: wisconsin}
+    parents: [george_1889, mary_1889]
+
+  - id: ella_1932
+    name: Ella Ruetten
+    sex: F
+    birth: {date: 1932-04-27, place: sparta_wi}
+
+  # --- generation 7 ---------------------------------------------------------
+  - id: kevin_1969
+    name: Kevin Theodore Ruetten
+    sex: M
+    birth: {date: 1969-04-07, place: sparta_wi}
+    parents: [stephen_1928, ella_1932]
+
+  # --- generation 7 ---------------------------------------------------------
+  - id: laik_1998
+    name: Laik Stephen Ruetten
+    sex: M
+    birth: {date: 1998-08-13, place: sparta_wi}
+    parents: [kevin_1969]
