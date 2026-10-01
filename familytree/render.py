@@ -211,5 +211,27 @@ def write_html(fig: go.Figure, config: Config) -> Path:
         full_html=True,
         auto_play=False,
         config=dict(displayModeBar=False, scrollZoom=True),
+        post_script=_REFRESH_HOVER_JS,
     )
     return path
+
+
+# Plotly only recomputes hover on mouse movement, so replay the cursor after each frame.
+_REFRESH_HOVER_JS = """
+(function () {
+  var gd = document.getElementById('{plot_id}');
+  var last = null;
+  gd.addEventListener('mousemove', function (e) {
+    if (e.isTrusted) last = {x: e.clientX, y: e.clientY};
+  });
+  gd.addEventListener('mouseleave', function () { last = null; });
+  gd.on('plotly_afterplot', function () {
+    if (!last) return;
+    var target = document.elementFromPoint(last.x, last.y);
+    if (!target || !gd.contains(target)) return;
+    target.dispatchEvent(new MouseEvent('mousemove', {
+      clientX: last.x, clientY: last.y, bubbles: true, cancelable: true, view: window
+    }));
+  });
+})();
+"""

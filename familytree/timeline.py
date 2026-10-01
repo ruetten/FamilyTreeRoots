@@ -372,10 +372,11 @@ def _hover(person: Person, tree: FamilyTree, year: float) -> str:
         if death_place:
             died += f" in {death_place.label}"
         lines.append(died)
-        if person.birth.year is not None:
-            lines.append(f"age {int(person.death.year - person.birth.year)}")
-    elif person.birth.year is not None:
-        lines.append(f"age {int(year - person.birth.year)}")
+    if person.birth.year is not None:
+        if person.death.year is not None and year >= person.death.year:
+            lines.append(f"died aged {math.floor(person.death.year - person.birth.year)}")
+        else:
+            lines.append(f"age {math.floor(year - person.birth.year)}")
     return "<br>".join(lines)
 
 

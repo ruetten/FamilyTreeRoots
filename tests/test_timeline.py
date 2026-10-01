@@ -5,7 +5,7 @@ import pytest
 
 from familytree import dummy_data
 from familytree.loader import load_tree
-from familytree.timeline import Config, Lineage, build_frames, build_position_track
+from familytree.timeline import Config, Lineage, _hover, build_frames, build_position_track
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
@@ -129,3 +129,17 @@ def test_living_counts_are_plausible(tree, config):
     for year in ("1850", "1900", "1950", "2001"):
         expected = sum(1 for p in tree.people.values() if p.is_alive(float(year)))
         assert int(frames[year].caption.split("·")[1].split()[0]) == expected
+
+
+def test_hover_age_tracks_the_slider_year(tree):
+    olav = tree.people["olav_1886"]  # born 1886-09-11, died 1957
+    assert "age 13" in _hover(olav, tree, 1900.0)
+    assert "age 14" in _hover(olav, tree, 1900.8)
+    assert "age 50" in _hover(olav, tree, 1937.0)
+
+
+def test_hover_after_death_shows_age_at_death(tree):
+    olav = tree.people["olav_1886"]
+    text = _hover(olav, tree, olav.death.year + 0.5)
+    assert "died aged 70" in text
+    assert "<br>age " not in text
